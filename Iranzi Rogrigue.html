@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>table</title>
+	<link rel="stylesheet" type="text/css" href="pro3.css">
+</head>
+<body>
+	<div class="contain">
+		<div class="head1">
+         <h1>Awesome management system</h1>
+		</div>
+		<div class="head">
+          <h2>Get in touch with us</h2>
+          <p>I can’t begin to count the number of times I’ve gotten in touch with a new company only to receive a robotic response from some person replying from their</p>
+          </div>
+          <div class="welcm">
+          	<h2>SERVICES!!!</h2>
+          	<img src="emoji.jpg">
+          	<img src="emoji1.jpg">
+          </div>
+			<div class="form1">
+				<h3>LOGIN_FORM</h3>
+				<form method="POST">
+		    <label>FIRSTNAME:</label>
+		    <input type="text" name="firstname"><br>
+		     <label>last_NAME</label>
+		    <input type="text" name="lastname"><br>
+		     <label>PASSWORD:</label>
+		    <input type="password" name="password"><br>
+		    <button name="submit">SUBMIT</button>
+	            </form>
+
+            <?php
+         require_once("connect.php");
+
+         if (isset($_POST['submit'])) {
+         	
+         	$firstname=$_POST['firstname'];
+         	$lastname=$_POST['lastname'];
+         	$password=$_POST['password'];
+
+         	$query=mysqli_query($conn,"INSERT INTO user(first_name,last_name,password) VALUES('$firstname','$lastname','$password')");
+
+         	if ($query) {
+         		
+         		header("location:product.php");
+         	}
+         }
+
+            ?>
+
+
+			</div>
+			<div class="footer">
+				
+			</div>
+	</div>
+<table>
+	
+</table>
+</body>
+</html>

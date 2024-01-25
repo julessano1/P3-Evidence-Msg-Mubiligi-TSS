@@ -1,0 +1,193 @@
+<html>
+<head>
+	<title>PROJECT 3</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			font-family: sans-serif;
+		}
+		body{
+			overflow-x:none;	
+		}
+		nav{
+	    	width: 100%;
+	    	height:80px;
+	    	background: white;
+	    	display: flex;
+	    	justify-content: space-between;
+	    }
+	    nav h1{
+	    	font-size: 30px;
+	    	color: #333;
+	    	margin-left: 30px;
+	    }
+	    nav ul{
+	    	display: flex;
+	    	list-style: none;
+	    	padding: 10px;
+	    	margin-right: 40px;
+	    	padding:15px;
+	    }
+	    nav ul li a{
+	    	color: #333;
+	    	text-decoration:none;
+	    	padding: 10px;
+	    }
+		.content1{
+			width: 100%;
+			padding-top: 150px;
+			padding-bottom: 150px;
+			text-align: center;
+			background-color: royalblue;
+		}
+		.content1 h1{
+			color: white;
+		    font-size: 60px;
+		    text-align: center;
+		    letter-spacing: 5px;
+		    animation-name: head;
+		    animation-duration: 2s;
+		    animation-iteration-count: initial;
+		    letter-spacing: 10px;
+        }
+        @keyframes head{
+        	0%{opacity:0; transform: translateY(30px);letter-spacing: 0px;}
+        	100%{opacity:1; transform: translateY(0px); letter-spacing: 10px;}
+        }
+        .content1 p{
+        	color: white;
+        	letter-spacing: 5px;
+        	 animation-name: headp;
+		    animation-duration: 4s;
+		    animation-iteration-count: initial;
+        }
+            @keyframes headp{
+        	0%{opacity:0; transform: translateX(50px);}
+        	50%{opacity:0; transform: translateX(50px);}
+        	100%{opacity:1; transform: translateX(0px);}
+        }
+        .touch{
+        	width: 100%;
+        	text-align: center;
+        	padding: 20px;
+        }
+        .service{
+        	background-color: gold;
+        	text-align: center;
+        	padding: 40px;
+        }
+        .service .boxes{
+        	display: flex;
+        	justify-content: space-around;
+        	flex-wrap: wrap;
+        }
+        .box{
+        	width: 20%;
+        	padding: 60px 0px 60px 0px;
+        	background-color: white;
+        }
+        button{
+        	padding: 5px ;
+        	border: 0px;
+        	background-color: royalblue;
+        	border-radius: 10px;
+        	color: white;
+        	margin-top: 20px;
+        	cursor: pointer;
+        }
+        i{
+            font-size: 200%;
+            color: grey;
+            padding: 10px;
+        }
+        form{
+        	width: 40%;
+        	margin: auto;
+        	text-align: center;
+        	margin-top: 100px;
+        	background-color: ghostwhite;
+        	border: 1px solid gray;
+        	margin-bottom: 50px;
+        	padding: 30px;
+        }
+        form input{
+        	width: 90%;
+        	height: 30px;
+        	margin-top: 10px;
+        }
+        footer{
+        	width: 100%;
+        	background: #333;
+        	padding: 40px 0px 40px 0px;
+        }
+        footer center{
+        	color: white;
+        }
+        }
+	</style>
+</head>
+<body>
+		<nav>
+		<h1>CODEJIKA.COM</h1>
+		<ul>
+			<li><a href="shemayvanindex.html">PROJECT 1</a></li>
+			<li><a href="shemayvanproject1.html">PROJECT 2</a></li>
+			<li><a href="shemayvanproject2.html">PROJECT 3</a></li>
+			<li><a href="shemayvanproject3.html">PROJECT 4</a></li>
+		</ul>
+	</nav>
+<div class="content1">
+	<h1><b style="color: orange;">XYZ</b> Real Estate</h1>
+	<p>best and awesome land you can get!</p>
+</div>
+<div class="touch">
+	<h1>Get in touch with us</h1><br><br>
+	<p>welcome to the perfect website where you get any type of land you want eihte for agricultural,housing or any other form of usage</p><br><br>
+	<p><b>About us:</b>Founded by shema yvan in 1958 we've served over 100 clients</p>
+</div>
+<div class="service">
+	<h1>SERVICES://</h1><br><br>
+	<div class="boxes">
+		<div class="box">
+			<i class="fa-solid fa-car"></i>
+			<p>we offer car rentals</p>
+            <button>explore more...</button>
+		</div>
+			<div class="box">
+			<i class="fa-solid fa-house"></i>
+			<p>we offer house and accomodation rentals</p>
+            <button>explore more...</button>
+		</div>
+	</div>
+</div>
+<form method="POST">
+	<h1>create an account here:</h1>
+	<input type="text" name="firstname" placeholder="first name..."><br>
+	<input type="text" name="lastname" placeholder="last name..."><br>
+	<input type="text" name="username" placeholder="user name..."><br>
+	<input type="password" name="password" placeholder="password..."><br>
+	<button  style="padding: 5px 5px 5px 5px;" name="submit" type="submit">create</button>
+</form>
+<footer>
+<center>All right reserved by CODEJIKA &copy; 2023</center>	
+</footer>
+<?php
+require 'config.php';
+if (isset($_POST['submit'])) {
+	$fname=$_POST['firstname'];
+	$lname=$_POST['lastname'];
+	$uname=$_POST['username'];
+	$pwd=$_POST['password'];
+	$query=mysqli_query($conn,"INSERT INTO user(firstname,lastname,username,password) VALUES
+    ('$fname','$lname','$uname','$pwd')
+	 ");
+	if ($query) 
+	{
+	   echo "<center><h3>account created!!!</h3></center>";
+	}
+}
+?>
+</body>
+</html>
